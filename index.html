@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Twitter Heart Button Animation</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+	$(document).ready(function()
+	{
+    
+	$('body').on("click",'.heart',function()
+    {
+    	
+    	var A=$(this).attr("id");
+    	var B=A.split("like");
+        var messageID=B[1];
+        var C=parseInt($("#likeCount"+messageID).html());
+    	$(this).css("background-position","")
+        var D=$(this).attr("rel");
+       
+        if(D === 'like') 
+        {      
+        $("#likeCount"+messageID).html(C+1);
+        $(this).addClass("heartAnimation").attr("rel","unlike");
+        
+        }
+        else
+        {
+        $("#likeCount"+messageID).html(C-1);
+        $(this).removeClass("heartAnimation").attr("rel","like");
+        $(this).css("background-position","left");
+        }
+
+
+    });
+
+
+	});
+	</script>
+</head>
+<body>
+<div id="container">
+<h1>Twitter Heart Button Animation with CSS3</h1>
+<div style="height:125px"></div>
+
+<h3>Click on heart button</h3>
+
+<div class="feed" id="feed1">
+<p>CNN<a href="#" target="_blank">http://cnn.com</a></p>
+<div class="heart " id="like1" rel="like"></div> <div class="likeCount" id="likeCount1">14</div>
+</div>
+
+<div class="feed" id="feed2">
+<p>BBC <a href="#" target="_blank">http://bbc.com</a></p>
+<div class="heart" id="like2" rel="like"></div> <div class="likeCount" id="likeCount2">10</div>
+</div>
+
+<div class="feed" id="feed2">
+<p>HIPTV <a href="#" target="_blank">http://hiptv.com</a></p>
+<div class="heart" id="like3" rel="like"></div> <div class="likeCount" id="likeCount3">24</div>
+</div>
+
+</div>
+</body>
+</html>
